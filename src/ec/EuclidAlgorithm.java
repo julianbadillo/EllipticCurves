@@ -1,4 +1,11 @@
+package ec;
 
+/**
+ * An implementation of extended Euclid's algorithm
+ * for long.
+ * @author jbadillo
+ *
+ */
 public class EuclidAlgorithm{
 	long a;
 	long b;

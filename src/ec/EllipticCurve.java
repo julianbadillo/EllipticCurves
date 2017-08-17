@@ -1,7 +1,15 @@
+package ec;
 import java.util.Random;
 
 import javax.management.RuntimeErrorException;
 
+
+/**
+ * An elliptic Curve implementation
+ * with long.
+ * @author jbadillo
+ *
+ */
 public class EllipticCurve {
 
 	long a, b;

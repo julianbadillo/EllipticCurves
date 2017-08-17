@@ -1,3 +1,4 @@
+package ec;
 import java.math.BigInteger;
 import static java.math.BigInteger.*;
 import java.util.Arrays;
@@ -6,7 +7,7 @@ import javax.management.RuntimeErrorException;
 
 /**
  * An implementation of the Chinese Remainder Theorem
- * solution.
+ * solution with long and BigInteger
  * @author jbadillo
  */
 public class ChineseRemainderTheorem {
@@ -54,7 +55,7 @@ public class ChineseRemainderTheorem {
 		BigInteger N = Arrays.stream(n).reduce(ONE, (n1,n2) -> n1.multiply(n2));
 		BigInteger x = ZERO;
 		for (int i = 0; i < a.length; i++) {
-			EuclidAlgorithmBI e = new EuclidAlgorithmBI(n[i], N.divide(n[i]));
+			EuclidAlgorithm2 e = new EuclidAlgorithm2(n[i], N.divide(n[i]));
 			// find integers   si, ti such that si*ni + ti*N/ni = 1
 			if(!e.r_old.equals(ONE))
 				throw new RuntimeErrorException(null, "Not all n's are coprimes");

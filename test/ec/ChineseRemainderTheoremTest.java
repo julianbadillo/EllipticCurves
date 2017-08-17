@@ -1,9 +1,12 @@
+package ec;
 import static org.junit.Assert.*;
 
 import java.math.BigInteger;
 import java.util.Random;
 
 import org.junit.Test;
+
+import ec.ChineseRemainderTheorem;
 
 public class ChineseRemainderTheoremTest {
 

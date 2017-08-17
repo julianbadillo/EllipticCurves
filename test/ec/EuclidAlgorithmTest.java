@@ -1,3 +1,4 @@
+package ec;
 import static org.junit.Assert.assertEquals;
 
 import java.math.BigInteger;
@@ -5,6 +6,9 @@ import static java.math.BigInteger.*;
 import java.util.Random;
 
 import org.junit.Test;
+
+import ec.EuclidAlgorithm;
+import ec.EuclidAlgorithm2;
 
 public class EuclidAlgorithmTest {
 
@@ -138,7 +142,7 @@ public class EuclidAlgorithmTest {
 	
 	@Test
 	public void testEuclidAlgorithmBI() {
-		EuclidAlgorithmBI ec = new EuclidAlgorithmBI(new BigInteger("173"), new BigInteger("351"));
+		EuclidAlgorithm2 ec = new EuclidAlgorithm2(new BigInteger("173"), new BigInteger("351"));
 		
 		// validate equation
 		//ec.r_old = a*ec.s_old + b*ec.t_old
@@ -150,7 +154,7 @@ public class EuclidAlgorithmTest {
 			BigInteger a = new BigInteger(128, r);
 			BigInteger b = new BigInteger(128, r);
 			if(a.equals(ZERO) || b.equals(ZERO)) continue;
-			ec = new EuclidAlgorithmBI(a, b);
+			ec = new EuclidAlgorithm2(a, b);
 			
 			// equation holds
 			// ec.r_old = a*ec.s_old + b*ec.t_old
@@ -161,13 +165,13 @@ public class EuclidAlgorithmTest {
 
 	@Test
 	public void testEuclidAlgorithmBIGcd() {
-		EuclidAlgorithmBI ec = new EuclidAlgorithmBI(valueOf(12), valueOf(8));
+		EuclidAlgorithm2 ec = new EuclidAlgorithm2(valueOf(12), valueOf(8));
 		assertEquals(valueOf(4), ec.r_old);
 
-		ec = new EuclidAlgorithmBI(valueOf(144), valueOf(64));
+		ec = new EuclidAlgorithm2(valueOf(144), valueOf(64));
 		assertEquals(valueOf(16), ec.r_old);
 
-		ec = new EuclidAlgorithmBI(valueOf(111 * 8), valueOf(111 * 17));
+		ec = new EuclidAlgorithm2(valueOf(111 * 8), valueOf(111 * 17));
 		assertEquals(valueOf(111), ec.r_old);
 		
 		Random r = new Random();
@@ -177,7 +181,7 @@ public class EuclidAlgorithmTest {
 			BigInteger a = new BigInteger(128, r);
 			BigInteger b = new BigInteger(128, r);
 			if(a.equals(ZERO) || b.equals(ZERO)) continue;
-			ec = new EuclidAlgorithmBI(a, b);
+			ec = new EuclidAlgorithm2(a, b);
 			// divides both
 			assertEquals(ZERO, a.mod(ec.gcd));
 			assertEquals(ZERO, a.mod(ec.gcd));
@@ -187,7 +191,7 @@ public class EuclidAlgorithmTest {
 	@Test
 	public void testEuclidBIInvert() {
 		BigInteger p = valueOf(17);
-		EuclidAlgorithmBI ec = new EuclidAlgorithmBI(valueOf(6), p);
+		EuclidAlgorithm2 ec = new EuclidAlgorithm2(valueOf(6), p);
 		assertEquals(valueOf(1), ec.r_old); // gcd
 		assertEquals(valueOf(3), ec.s_old); // mod inverse
 		
@@ -201,7 +205,7 @@ public class EuclidAlgorithmTest {
 			
 			if(a.equals(ZERO)) continue;
 			
-			ec = new EuclidAlgorithmBI(a, p);
+			ec = new EuclidAlgorithm2(a, p);
 			// GCD = 1
 			assertEquals(ONE, ec.gcd);
 			// invert

@@ -1,3 +1,4 @@
+package ec;
 import static org.junit.Assert.*;
 
 import java.math.BigInteger;
@@ -7,6 +8,8 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import org.junit.Test;
+
+import ec.EllipticCurve2;
 
 public class EllipticCurve2Test {
 
@@ -112,6 +115,22 @@ public class EllipticCurve2Test {
 		}
 	}
 
+	@Test
+	public void testPiEndomorphism() {
+		BigInteger prime = valueOf(10007);
+		EllipticCurve2 ec = new EllipticCurve2(valueOf(1041), valueOf(1242), prime);
+		for (int i = 0; i < 100; i++) {
+			EllipticCurve2.Point p = ec.getRandomPoint();
+			assertNotNull(p);
+			assertTrue(ec.isInCurve(p));
+			// transform
+			EllipticCurve2.Point p2 = new EllipticCurve2.Point(p.x.modPow(ec.prime, ec.prime) , p.y.modPow(ec.prime, ec.prime));
+			assertTrue(ec.isInCurve(p2));
+			assertEquals(p, p2);
+		}
+	}
+
+	
 	@Test
 	public void testEulerCriterion() {
 		BigInteger prime = valueOf(10007);

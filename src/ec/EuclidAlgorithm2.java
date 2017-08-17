@@ -1,3 +1,4 @@
+package ec;
 import java.math.BigInteger;
 import static java.math.BigInteger.*;
 
@@ -6,7 +7,7 @@ import static java.math.BigInteger.*;
  * using the extended version of Euclid's algorithm.
  * @author jbadillo
  */
-public class EuclidAlgorithmBI {
+public class EuclidAlgorithm2 {
 
 	BigInteger a;
 	BigInteger b;
@@ -20,7 +21,7 @@ public class EuclidAlgorithmBI {
 	 * @param a
 	 * @param b
 	 */
-	public EuclidAlgorithmBI(BigInteger a, BigInteger b) {
+	public EuclidAlgorithm2(BigInteger a, BigInteger b) {
 		this.a = a;
 		this.b = b;
 		run();
