@@ -15,7 +15,7 @@ public class EllipticCurve2Test {
 
 	@Test
 	public void testOrder() {
-		EllipticCurve2 ec = new EllipticCurve2(valueOf(5), valueOf(7), valueOf(17));
+        var ec = new EllipticCurve2(valueOf(5), valueOf(7), valueOf(17));
 		ec.setGenerator(new EllipticCurve2.Point(valueOf(2), valueOf(12)), valueOf(23));
 		assertEquals(valueOf(23), ec.n);
 	}

@@ -28,7 +28,7 @@ public class ChineseRemainderTheorem {
 		long N = Arrays.stream(n).reduce(1L, (n1,n2) -> n1*n2);
 		long x = 0;
 		for (int i = 0; i < a.length; i++) {
-			EuclidAlgorithm e = new EuclidAlgorithm(n[i], N/n[i]);
+			var e = new EuclidAlgorithm(n[i], N/n[i]);
 			// find integers   si, ti such that si*ni + ti*N/ni = 1
 			if(e.r_old != 1)
 				throw new RuntimeErrorException(null, "Not all n's are coprimes");
@@ -55,7 +55,7 @@ public class ChineseRemainderTheorem {
 		BigInteger N = Arrays.stream(n).reduce(ONE, (n1,n2) -> n1.multiply(n2));
 		BigInteger x = ZERO;
 		for (int i = 0; i < a.length; i++) {
-			EuclidAlgorithm2 e = new EuclidAlgorithm2(n[i], N.divide(n[i]));
+			var e = new EuclidAlgorithm2(n[i], N.divide(n[i]));
 			// find integers   si, ti such that si*ni + ti*N/ni = 1
 			if(!e.r_old.equals(ONE))
 				throw new RuntimeErrorException(null, "Not all n's are coprimes");
